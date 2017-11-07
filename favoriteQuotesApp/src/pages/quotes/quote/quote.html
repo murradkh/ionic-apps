@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{author}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+  <ion-card>
+    <ion-card-content>
+      {{text}}
+    </ion-card-content>
+    <button ion-button outline small color="danger" (click)="unfavorite()">unfavorite</button>
+  </ion-card>
+  <button (click)="dismiss()" ion-button color="danger">Cancel</button>
+</ion-content>

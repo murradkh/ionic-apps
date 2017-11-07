@@ -1,0 +1,24 @@
+<ion-menu [content]="nav" #menuctrl>
+<ion-header>
+<ion-toolbar>
+    <ion-title>
+        Menu
+    </ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content>
+ <ion-list>
+
+     <button ion-item (click)='onLoad("settings")'>
+<ion-icon name="settings" item-left></ion-icon>
+Settings
+     </button>
+     <button ion-item (click)='onLoad("tabspage")'>
+         <ion-icon name="quote" item-left>
+            </ion-icon>
+Qoutes
+     </button>
+ </ion-list>
+</ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #nav></ion-nav>

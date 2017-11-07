@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Assignment 2
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <h2 text-center>Enter the right Code</h2>
+<p text-center>{{rules}}</p>
+
+<ion-list>
+  <ion-item>
+   <p> Tapped:{{tapped}}
+     
+   </p>
+  </ion-item>
+  <ion-item >
+    <p>
+    Pressed:{{pressed}}
+  </p>
+  </ion-item>
+</ion-list>
+<app-buttons-component (resetall)="resetall()" (resettaps)="resettaps()" (resetpresses)="resetpresses()"></app-buttons-component>
+<ion-row style="background-color: #00804F">
+  <div col-6 text-center (tap)="Tapped()">
+Tap here
+  </div>
+  <div col-6 text-center (press)="press()" >
+Press here
+  </div>
+</ion-row>
+</ion-content>
