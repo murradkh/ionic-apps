@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Awesome Places
+    </ion-title>
+    <ion-buttons end>
+<button ion-button icon-only (click)="toaddplacepage()">
+  <ion-icon name="add"></ion-icon>
+</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-card *ngFor="let place of places;let i=index" (click)="openplace(i)">
+    <img [src]="" [id]="i">
+    
+<ion-card-content text-center>
+  <ion-card-title>
+{{place.title}}
+
+  </ion-card-title>
+  <p>{{place.description}}</p>
+</ion-card-content>
+
+ </ion-card>
+
+</ion-content>
