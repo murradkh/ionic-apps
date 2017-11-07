@@ -1,0 +1,32 @@
+
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>{{Recipe.title}}</ion-title>
+        
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content padding>
+<h1 text-center>{{Recipe.title}}</h1>
+<p   text-center>{{Recipe.difficulty}}</p>
+<br>
+<h5 text-center>{{Recipe.description}}</h5>
+<ion-list>
+    <ion-item *ngFor="let item of Recipe.ingrediants">
+            {{item.name}}   ({{item.amount}})
+    </ion-item>
+</ion-list>    
+<br>
+<button clear ion-button type="button" color='primary' text-center block (click)="passingtoshoppinglist()">Add Ingrediants To Shopping List</button>
+
+<button outline ion-button type="button" color='primary' style="margin-left: 40px" (click)="editrecipe()" >Edit Recipe </button>
+
+<button outline ion-button type="button" color='danger' (click)="deleterecipe()" >Delete Recipe</button>
+<ion-row>
+<button margin-top block color="primary"  ion-button type="button"   (click)="cancel()">Canel</button>
+</ion-row>
+</ion-content>
+    

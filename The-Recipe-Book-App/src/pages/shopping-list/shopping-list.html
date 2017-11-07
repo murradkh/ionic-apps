@@ -1,0 +1,58 @@
+<!--
+  Generated template for the ShoppingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>shopping-list</ion-title>
+    <ion-buttons end >
+<button ion-button icon-only (click)="openpopover($event)">
+  <ion-icon name="more"></ion-icon>
+</button>
+    </ion-buttons>
+    <ion-buttons start >
+        <button ion-button  (click)="openmenu()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form (ngSubmit)="onsubmit(f)" #f='ngForm'>
+  <ion-list >
+    <ion-item>
+      <ion-label floating>
+        Name
+      </ion-label>
+      <ion-input type="text" name="name" [ngModel]="nameinput" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Amount</ion-label>
+      <ion-input type="number" pattern="[1-9][0-9]*" name="amount" [ngModel]="amountinput" required></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" margin-top [disabled]="!f.valid" *ngIf="!editstate">Add</button>
+    <button ion-button block type="submit" margin-top [disabled]="!f.valid" *ngIf="editstate">Edit</button>
+    
+  </ion-list>
+</form>
+
+<ion-list>
+    <ion-item-sliding *ngFor="let item of shoppinglist;let i=index">
+  <ion-item (click)="edititem(i)">
+    <h2>{{item.name}} ({{item.amount}})</h2>
+  </ion-item>
+  <ion-item-options>
+    <button ion-button color="danger" large (click)="removeitem(i)">
+        <ion-icon name="trash"></ion-icon>
+    </button>
+    </ion-item-options>
+</ion-item-sliding>
+</ion-list>
+
+</ion-content>

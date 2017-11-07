@@ -1,0 +1,56 @@
+<ion-header>
+<ion-navbar>
+    <ion-title>
+        {{mode}} Recipe
+    </ion-title>
+</ion-navbar>
+
+
+</ion-header>
+
+<ion-content padding>
+    <form (ngSubmit)="onsubmit(f)" #f=ngForm>
+    <ion-list>
+        <ion-item>
+            <ion-label for="title" floating>Title</ion-label>
+            <ion-input name="title" type="text" [ngModel]="Recipe.title" required></ion-input>
+        </ion-item>
+        <ion-item>
+                <ion-label for="description" floating>Description</ion-label>
+                <ion-input name="description" type="text" [ngModel]="Recipe.description" required></ion-input>
+        </ion-item>
+        <ion-item>
+                <ion-label for="difficulty" floating>Difficulty</ion-label>
+                <ion-select name="difficulty" [ngModel]="Recipe.difficulty" required>
+                  <ion-option [value]="item" *ngFor="let item of Difficulty">{{item}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+            <button large ion-button type="button" clear margin-top block class="crazy" (click)="manageingrediants()" >Manage Ingrediants</button>
+        </ion-item>
+    
+
+        <ion-grid ngModelGroup="ingrediants">
+                <ion-row *ngFor="let item of ingrediants;let i=index" [ngModelGroup]="'ingrediant'+i">
+                  <ion-col>
+                        <ion-label>Name</ion-label>
+                        <ion-input  name="name"  type="text"
+                        [(ngModel)]="item.name" required></ion-input>           
+                  </ion-col>
+                  <ion-col>
+                        <ion-label>Amount</ion-label>
+                        <ion-input  name="amount"   type="number"
+                        [(ngModel)]="item.amount" required pattern="[1-9][0-9]*"></ion-input> 
+                  </ion-col>
+                </ion-row>
+        </ion-grid>
+
+    
+       
+    </ion-list>
+
+    <button ion-button block type="submit" margin-top [disabled]="!f.valid" >{{mode}} Recipe</button>
+    
+</form>
+</ion-content>
+
